@@ -12,15 +12,17 @@ type DestinationCardProps = {
 export function DestinationCard({ destination }: DestinationCardProps) {
   const { name, price, priceLabel, duration, image, imageAlt } = destination;
 
-  // In the 2-column tablet grid, a lone last card spans both columns so it centers.
+  // Full container width on phones (matching every other section's 16px gutter); the
+  // 315px design width from tablet up. In the 2-column tablet grid, a lone last card
+  // spans both columns so it centers.
   return (
-    <motion.li variants={fadeUp} className="w-full max-w-78.75 sm:max-lg:last:odd:col-span-2">
+    <motion.li variants={fadeUp} className="w-full sm:max-w-78.75 sm:max-lg:last:odd:col-span-2">
       <article className="group relative h-114.25 overflow-hidden rounded-3xl bg-white shadow-card transition-transform duration-500 ease-out hover:-translate-y-2 motion-reduce:transition-none motion-reduce:hover:translate-y-0">
         <Image
           src={image}
           alt={imageAlt}
           fill
-          sizes="(min-width: 1024px) 315px, (min-width: 640px) 45vw, 90vw"
+          sizes="(min-width: 640px) 315px, calc(100vw - 32px)"
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 motion-reduce:transition-none"
         />
 

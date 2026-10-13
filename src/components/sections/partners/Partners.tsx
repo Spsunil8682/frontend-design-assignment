@@ -21,7 +21,11 @@ export function Partners() {
       <Container>
         <motion.ul
           {...staggerList}
-          onPointerLeave={() => setActive(DEFAULT_ACTIVE)}
+          // Touch screens fire pointerleave as soon as the finger lifts, which would snap the
+          // card straight back. Only reset for a real mouse leaving; taps keep their selection.
+          onPointerLeave={(e) => {
+            if (e.pointerType === "mouse") setActive(DEFAULT_ACTIVE);
+          }}
           className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 sm:gap-x-10 sm:gap-y-4 lg:flex-nowrap lg:justify-between lg:gap-x-4"
         >
           {partners.map((partner, index) => (
