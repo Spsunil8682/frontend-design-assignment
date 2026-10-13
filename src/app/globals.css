@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+/* Design tokens pulled from the Figma file */
+@theme {
+  --color-navy: #14183e;
+  --color-ink: #1e1d4c;
+  --color-muted: #5e6282;
+  --color-orange: #df6951;
+  --color-coral: #ff7152;
+  --color-violet: #6246e5;
+  --color-cream: #fff1da;
+  --color-line: #e5e5e5;
+  --color-mustard: #f0bb1f;
+  --color-flame: #f15a2b;
+  --color-teal: #006380;
+  --color-sky: #59b1e6;
+  --color-lavender: #8a79df;
+  --color-royal: #4152ca;
+  --color-slate: #84829a;
+  --color-mist: #f5f5f5;
+  --color-coal: #080808;
+  --color-gunmetal: #39425d;
+  --color-plum: #3e2e4d;
+  --color-haze: #bcb7c2;
+  --color-dusk: #4e4e73;
+  --color-snow: #f7f7f7;
+
+  /* Layered soft shadow from the active service card */
+  --shadow-card:
+    0 1.85px 3.15px rgb(0 0 0 / 0.002), 0 8.15px 6.52px rgb(0 0 0 / 0.008),
+    0 20px 13px rgb(0 0 0 / 0.01), 0 38.52px 25.48px rgb(0 0 0 / 0.012),
+    0 64.81px 46.85px rgb(0 0 0 / 0.016), 0 100px 80px rgb(0 0 0 / 0.02);
+}
+
+/* Inline so the next/font variables (set on <body>) resolve where they are used */
+@theme inline {
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-volkhov), Georgia, serif;
+  --font-open: var(--font-open-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Keeps anchored sections clear of the fixed header */
+  scroll-padding-top: 5.5rem;
+}
+
+body {
+  background: #fff;
+  color: var(--color-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
