@@ -6,6 +6,10 @@ import { Services } from "@/components/sections/services/Services";
 import { Subscribe } from "@/components/sections/subscribe/Subscribe";
 import { Testimonials } from "@/components/sections/testimonials/Testimonials";
 
+// SSG: the landing page has no per-request data, so it is prerendered once at build
+// time and served from the CDN. Fails the build if anything ever makes it dynamic.
+export const dynamic = "error";
+
 export default function Home() {
   return (
     <main>

@@ -1,0 +1,11 @@
+/**
+ * Absolute site URL for robots.txt and sitemap.xml (both require absolute URLs).
+ * Set NEXT_PUBLIC_SITE_URL for a custom domain; on Vercel it otherwise falls back to the
+ * project's production URL, which Vercel exposes at build time.
+ */
+export const siteUrl = (
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:3000")
+).replace(/\/$/, "");
